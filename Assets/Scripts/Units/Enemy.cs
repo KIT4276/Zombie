@@ -25,10 +25,11 @@ public class Enemy : BaseUnit
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
-        if (other.TryGetComponent<BatTrigger>(out var bat))
+        //Debug.Log("OnTriggerEnter");
+        if (other.GetComponent<BatTrigger>() && other.GetComponentInParent<Player>().GetIsAttack())
         {
-            Debug.Log("BatTrigger");
+           // Debug.Log("BatTrigger");
+
             TakeDamage(_player.GetParams().GetAttackValue());
         }
     }

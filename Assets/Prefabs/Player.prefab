@@ -183,6 +183,7 @@ MonoBehaviour:
   _startHealth: 100
   _moveSpeed: 4
   _attackValue: 10
+  _attackTime: 1
 --- !u!114 &2625305549170162725
 MonoBehaviour:
   m_ObjectHideFlags: 0

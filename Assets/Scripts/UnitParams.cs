@@ -10,6 +10,8 @@ public class UnitParams : MonoBehaviour
     private float _moveSpeed;
     [SerializeField]
     private float _attackValue;
+    [SerializeField]
+    private float _attackTime;
 
     #region Get
 
@@ -18,6 +20,8 @@ public class UnitParams : MonoBehaviour
     public float GetMoveSpeed() => _moveSpeed;
 
     public float GetAttackValue() => _attackValue;
+
+    public float GetAttackTime() => _attackTime;
 
 
     #endregion Get

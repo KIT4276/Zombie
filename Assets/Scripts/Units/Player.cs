@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : BaseUnit
 {
     private PlayerInput _playerInput;
-    
+
     protected override void Start()
     {
         base.Start();
@@ -39,4 +39,6 @@ public class Player : BaseUnit
     {
         base.Death();
     }
+
+    public bool GetIsAttack() => _attack.IsAttack;
 }

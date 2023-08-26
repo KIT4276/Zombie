@@ -25,7 +25,7 @@ public class BaseUnit : MonoBehaviour
 
         _health.Initialized(_params.GetStartHealth());
         _move.Initialized(_params.GetMoveSpeed(), this.gameObject);
-        _attack.Initialized(_params.GetAttackValue());
+        _attack.Initialized(_params.GetAttackTime());
         _animation.Initialized(GetComponent<Animator>());
 
         _health.DeathE += Death;
