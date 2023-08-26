@@ -5,13 +5,13 @@ using UnityEngine;
 public class UnitParams : MonoBehaviour
 {
     [SerializeField]
-    private float _startHealth;
+    protected float _startHealth;
     [SerializeField]
-    private float _moveSpeed;
+    protected float _moveSpeed;
     [SerializeField]
-    private float _attackValue;
+    protected float _attackValue;
     [SerializeField]
-    private float _attackTime;
+    protected float _attackTime;
 
     #region Get
 

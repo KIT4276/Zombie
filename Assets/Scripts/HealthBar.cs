@@ -6,6 +6,9 @@ using Zenject;
 
 public class HealthBar : MonoBehaviour
 {
+    [Inject]
+    private CameraPoint _cameraPoint;
+
     private Transform _target;
     
     [SerializeField]
@@ -13,11 +16,11 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Enemy _enemy;
 
-    [Inject]
-    private CameraPoint _cameraPoint;
+    
 
     public void Init()
     {
+        Debug.Log(_cameraPoint);
         _slider.maxValue = _enemy.GetCurrMaxHealth();
         _target = _cameraPoint.GetComponentInChildren<Camera>().transform;
     }
