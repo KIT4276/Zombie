@@ -8,7 +8,7 @@ using Zenject;
 public class Enemy : BaseUnit
 {
     [Inject]
-    private Player _player;
+    private readonly Player _player;
 
     private EnemiesAI _ai;
     protected EnemyParams _enemyParams;
@@ -25,7 +25,7 @@ public class Enemy : BaseUnit
         _ai = new EnemiesAI();
         _ai.Initialized
             (this, _enemyParams.GetVewAngle(), _enemyParams.GetViewlDistance(), _enemyParams.GetDetectionDistance(),_enemyParams.GetEye(),
-            _enemyParams.GetMoveSpeed(), _enemyParams.GetRotationSpeed(), _player.transform, _enemyParams.GetStoppingDistance(), _enemyParams.GetAttackDistance());
+            _enemyParams.GetMoveSpeed(), _enemyParams.GetRotationSpeed(), _player.transform, _enemyParams.GetStoppingDistance());
         _healthBar.Init();
 
         _ai.AttackE += EnemyAttack;
@@ -33,12 +33,10 @@ public class Enemy : BaseUnit
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("OnTriggerEnter");
         if (other.GetComponent<BatTrigger>() && other.GetComponentInParent<Player>().GetIsAttack())
         {
-           // Debug.Log("BatTrigger");
-
             TakeDamage(_player.GetParams().GetAttackValue());
+            _ai.SetTarget(true);
         }
     }
 

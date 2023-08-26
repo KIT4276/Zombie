@@ -7,7 +7,7 @@ using Zenject;
 public class HealthBar : MonoBehaviour
 {
     [Inject]
-    private CameraPoint _cameraPoint;
+    private readonly CameraPoint _cameraPoint;
 
     private Transform _target;
     

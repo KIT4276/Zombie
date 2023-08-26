@@ -37,11 +37,8 @@ public class Player : BaseUnit
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
         if (other.GetComponent<BatTrigger>() && other.GetComponentInParent<Enemy>().GetIsAttack())
         {
-             Debug.Log("BatTrigger");
-
             TakeDamage(other.GetComponentInParent<Enemy>().GetParams().GetAttackValue());
         }
     }

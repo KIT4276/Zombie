@@ -7,16 +7,12 @@ using Zenject;
 
 public class EnemiesAI 
 {
-    //[Inject]
-    //private Player _player;
-    
-
     private NavMeshAgent _navMeshAgent;
 
     private float _viewAngle;
     private float _viewlDistance;
     private float _detectionDistance;
-    private float _attackDistance;
+   // private float _attackDistance;
     private Transform _eye;
 
     private Transform _target;
@@ -29,7 +25,7 @@ public class EnemiesAI
     public event Action AttackE;
 
     public void Initialized(Enemy enemy, float viewAngle, float viewlDistance, float detectionDistance, Transform eye,
-        float speed, float rotationSpeed, Transform target, float stoppingDistance, float attackDistance)
+        float speed, float rotationSpeed, Transform target, float stoppingDistance)
     {
         _navMeshAgent = enemy.GetComponent<NavMeshAgent>();
 
@@ -37,7 +33,7 @@ public class EnemiesAI
         _viewlDistance = viewlDistance;
         _detectionDistance = detectionDistance;
         _eye = eye;
-        _attackDistance = attackDistance;
+        //_attackDistance = attackDistance;
 
         _navMeshAgent.speed = speed;
         _navMeshAgent.angularSpeed = rotationSpeed;
@@ -52,20 +48,12 @@ public class EnemiesAI
         var distance = Vector3.Distance(_target.position, _eye.position);
 
         if(distance <= _detectionDistance && IsInVew())
-        {
-            _navMeshAgent.SetDestination(_target.position);
-            IsDetected = true;
-        }
+            SetTarget(true);
         else
-        {
-            _navMeshAgent.SetDestination(_startPos);
-            IsDetected = false;
-        }
+            SetTarget(false);
 
         if (distance >_navMeshAgent.stoppingDistance && IsDetected)
-        {
             IsMoving = true;
-        }
         else
         {
             IsMoving = false;
@@ -77,7 +65,7 @@ public class EnemiesAI
     {
         var angle = Vector3.Angle(_eye.forward, _target.position - _eye.position);
 
-        if(Physics.Raycast(_eye.position, _target.position - _eye.position, out var hit, _viewlDistance))
+        if(Physics.Raycast(_eye.position, _target.position - _eye.position, _viewlDistance))
         {
             if (angle <= _viewAngle/2 )
             {
@@ -86,5 +74,17 @@ public class EnemiesAI
             else return false;
         }
         else return false;
+    }
+
+    public void SetTarget(bool isPlayer)
+    {
+        if (isPlayer)
+        {
+            _navMeshAgent.SetDestination(_target.position);
+        }
+        else
+            _navMeshAgent.SetDestination(_startPos);
+
+        IsDetected = isPlayer;
     }
 }

@@ -7,7 +7,7 @@ using Zenject;
 public class HealthSystem : MonoBehaviour
 {
     [Inject]
-    private Player _player;
+    private readonly Player _player;
 
     [SerializeField]
     private Text _healthText;
