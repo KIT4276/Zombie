@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,14 @@ public class EnemiesAI
 {
     //[Inject]
     //private Player _player;
+    
 
     private NavMeshAgent _navMeshAgent;
 
     private float _viewAngle;
     private float _viewlDistance;
     private float _detectionDistance;
+    private float _attackDistance;
     private Transform _eye;
 
     private Transform _target;
@@ -21,8 +24,12 @@ public class EnemiesAI
     private Vector3 _startPos;
 
     public bool IsMoving { get; private set; }
+    public bool IsDetected { get; private set; }
 
-    public void Initialized(Enemy enemy, float viewAngle, float viewlDistance, float detectionDistance, Transform eye, float speed, float rotationSpeed, Transform target)
+    public event Action AttackE;
+
+    public void Initialized(Enemy enemy, float viewAngle, float viewlDistance, float detectionDistance, Transform eye,
+        float speed, float rotationSpeed, Transform target, float stoppingDistance, float attackDistance)
     {
         _navMeshAgent = enemy.GetComponent<NavMeshAgent>();
 
@@ -30,9 +37,11 @@ public class EnemiesAI
         _viewlDistance = viewlDistance;
         _detectionDistance = detectionDistance;
         _eye = eye;
+        _attackDistance = attackDistance;
 
         _navMeshAgent.speed = speed;
         _navMeshAgent.angularSpeed = rotationSpeed;
+        _navMeshAgent.stoppingDistance = stoppingDistance;
 
         _startPos = enemy.transform.position;
         _target = target;
@@ -44,24 +53,23 @@ public class EnemiesAI
 
         if(distance <= _detectionDistance && IsInVew())
         {
-            Debug.Log("----------------------------DETECTED----------------------");
             _navMeshAgent.SetDestination(_target.position);
+            IsDetected = true;
         }
         else
         {
-            Debug.Log("----------------------------unDetected----------------------");
             _navMeshAgent.SetDestination(_startPos);
+            IsDetected = false;
         }
 
-        if (_navMeshAgent.hasPath)
+        if (distance >_navMeshAgent.stoppingDistance && IsDetected)
         {
             IsMoving = true;
-            Debug.Log("IsMoving = true;");
         }
         else
         {
             IsMoving = false;
-            Debug.Log("IsMoving = false;");
+            AttackE?.Invoke();
         }
     }
 

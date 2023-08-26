@@ -11,6 +11,10 @@ public class EnemyParams : UnitParams
     [SerializeField]
     private float _detectionDistance;
     [SerializeField]
+    private float _stoppingDistance;
+    [SerializeField]
+    private float _attackDistance;
+    [SerializeField]
     private Transform _eye;
 
     [SerializeField]
@@ -27,6 +31,10 @@ public class EnemyParams : UnitParams
     public Transform GetEye() => _eye;
 
     public float GetRotationSpeed() => _rotationSpeed;
+
+    public float GetStoppingDistance() => _stoppingDistance;
+
+    public float GetAttackDistance() => _attackDistance;
 
     #endregion Get
 }

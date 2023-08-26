@@ -8,13 +8,15 @@ public class Attack
 {
     //private float _attackValue;
     private float _attackTime;
+    private float _coolDown;
 
     public bool IsAttack { get; private set; }
 
-    public void Initialized(float attackTime)
+    public void Initialized(float attackTime, float coolDown)
     {
         //_attackValue = attackvalue;
         _attackTime = attackTime;
+        _coolDown = coolDown;
     }
 
     public void OnAttack()
@@ -26,7 +28,7 @@ public class Attack
 
     private async Task EndAttack()
     {
-        await Task.Delay(System.TimeSpan.FromSeconds(_attackTime));
+        await Task.Delay(System.TimeSpan.FromSeconds(_coolDown));
         IsAttack = false;
        // Debug.Log(" IsAttack = false;");
     }

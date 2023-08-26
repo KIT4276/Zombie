@@ -12,6 +12,8 @@ public class UnitParams : MonoBehaviour
     protected float _attackValue;
     [SerializeField]
     protected float _attackTime;
+    [SerializeField]
+    private float _coolDown = 1.5f;
 
     #region Get
 
@@ -22,6 +24,8 @@ public class UnitParams : MonoBehaviour
     public float GetAttackValue() => _attackValue;
 
     public float GetAttackTime() => _attackTime;
+
+    public float GetCoolDown() => _coolDown;
 
 
     #endregion Get

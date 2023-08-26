@@ -16,11 +16,8 @@ public class HealthBar : MonoBehaviour
     [SerializeField]
     private Enemy _enemy;
 
-    
-
     public void Init()
     {
-        Debug.Log(_cameraPoint);
         _slider.maxValue = _enemy.GetCurrMaxHealth();
         _target = _cameraPoint.GetComponentInChildren<Camera>().transform;
     }

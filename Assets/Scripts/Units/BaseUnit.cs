@@ -25,12 +25,11 @@ public class BaseUnit : MonoBehaviour
 
         _health.Initialized(_params.GetStartHealth());
         _move.Initialized(_params.GetMoveSpeed(), this.gameObject);
-        _attack.Initialized(_params.GetAttackTime());
+        _attack.Initialized(_params.GetAttackTime(), _params.GetCoolDown());
         _animation.Initialized(GetComponent<Animator>());
 
         _health.DeathE += Death;
     }
-
     
 
     protected void UnitAttack()
@@ -58,4 +57,6 @@ public class BaseUnit : MonoBehaviour
     public float GetCurrHealth() => _health.CurrentHealth;
 
     public UnitParams GetParams() => _params;
+
+    public bool GetIsAttack() => _attack.IsAttack;
 }
