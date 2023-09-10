@@ -22,7 +22,7 @@ public class EnemiesAI
     public bool IsMoving { get; private set; }
     public bool IsDetected { get; private set; }
 
-    public event Action AttackE;
+    public event Action EnemyAttackE;
 
     public void Initialized(Enemy enemy, float viewAngle, float viewlDistance, float detectionDistance, Transform eye,
         float speed, float rotationSpeed, Transform target, float stoppingDistance)
@@ -57,7 +57,7 @@ public class EnemiesAI
         else
         {
             IsMoving = false;
-            AttackE?.Invoke();
+            EnemyAttackE?.Invoke();
         }
     }
 

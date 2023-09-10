@@ -7,7 +7,7 @@ public class BaseUnit : MonoBehaviour
 {
     protected UnitParams _params;
     protected Health _health;
-    protected Move _move;
+    //protected Move _move;
     protected Attack _attack;
     protected Animation _animation;
 
@@ -19,12 +19,12 @@ public class BaseUnit : MonoBehaviour
         _params = GetComponent<UnitParams>();
 
         _health = new Health();
-        _move = new Move();
+        
         _attack = new Attack();
         _animation = new Animation();
 
         _health.Initialized(_params.GetStartHealth());
-        _move.Initialized(_params.GetMoveSpeed(), this.gameObject);
+        
         _attack.Initialized(_params.GetAttackTime(), _params.GetCoolDown());
         _animation.Initialized(GetComponent<Animator>());
 
@@ -34,8 +34,11 @@ public class BaseUnit : MonoBehaviour
 
     protected void UnitAttack()
     {
-        _attack.OnAttack();
-        _animation.AttackAnim();
+        if (IsAlive && !_attack.IsAttack)
+        {
+            _attack.OnAttack();
+            _animation.AttackAnim();
+        }
     }
 
     protected void TakeDamage(float damage)
@@ -52,6 +55,30 @@ public class BaseUnit : MonoBehaviour
         }
     }
 
+    protected void OnTriggerEnter(Collider other)
+    {
+        //if (other.TryGetComponent<BatTrigger>(out var b))
+        //{
+        //    Debug.Log(b);
+        //    Debug.Log(b.GetUnitType());
+        //}
+        //if(other.GetComponentInParent<BaseUnit>() != null)
+        //{
+        //    Debug.Log("!= null");
+        //    Debug.Log(GetComponentInParent<BaseUnit>().GetIsAttack());
+        //}
+        
+        
+
+        if (other.TryGetComponent<BatTrigger>(out var bat) && bat.GetUnitType() != _params.GetUnitType() && other.GetComponentInParent<BaseUnit>() != null && other.GetComponentInParent<BaseUnit>())
+        {
+            Debug.Log("Удар");
+            TakeDamage(other.GetComponentInParent<BaseUnit>().GetParams().GetAttackValue());
+        }
+    }
+
+    #region GetMethods
+
     public float GetCurrMaxHealth() => _params.GetStartHealth();
 
     public float GetCurrHealth() => _health.CurrentHealth;
@@ -59,4 +86,11 @@ public class BaseUnit : MonoBehaviour
     public UnitParams GetParams() => _params;
 
     public bool GetIsAttack() => _attack.IsAttack;
+
+    #endregion    GetMethods
+
+    private void OnDestroy()
+    {
+        _health.DeathE -= Death;
+    }
 }

@@ -2,18 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent (typeof(CharacterController))]
 public class Player : BaseUnit
 {
     private PlayerInput _playerInput;
+    private PlayerMove _move;
+
 
     protected override void Start()
     {
         base.Start();
-        
+
+        _move = new PlayerMove(GetComponent<CharacterController>());
         _playerInput = new PlayerInput();
         _playerInput.Initialized();
-        _playerInput.AttackE += UnitAttack;
+        _move.Initialized(_params.GetMoveSpeed(), this.gameObject);
+        _playerInput.PlayerAttackE += UnitAttack;
     }
 
     private void Update()
@@ -35,16 +39,17 @@ public class Player : BaseUnit
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<BatTrigger>() && other.GetComponentInParent<Enemy>().GetIsAttack())
-        {
-            TakeDamage(other.GetComponentInParent<Enemy>().GetParams().GetAttackValue());
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.TryGetComponent <BatTrigger>(out var bat) && other.TryGetComponent<Enemy>(out var enemy) && enemy.GetIsAttack())
+    //    {
+    //        TakeDamage(other.GetComponentInParent<Enemy>().GetParams().GetAttackValue());
+    //    }
+    //}
 
     protected override void Death()
     {
+        _playerInput.OnDeath();
         base.Death();
     }
 

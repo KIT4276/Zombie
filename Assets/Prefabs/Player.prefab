@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571082e65ade53e4389ae970fb45dec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unitType: 0
 --- !u!1 &4875441105755766835
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,8 +123,7 @@ GameObject:
   - component: {fileID: 4875441105748390421}
   - component: {fileID: 2625305549170162724}
   - component: {fileID: 2625305549170162725}
-  - component: {fileID: 1549560843551682145}
-  - component: {fileID: 970314637661502695}
+  - component: {fileID: 3328614835942377796}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -139,7 +139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4875441105755766835}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 17.85436, y: 2.025, z: 6.787154}
+  m_LocalPosition: {x: 17.85436, y: 0, z: 6.787154}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -184,6 +184,8 @@ MonoBehaviour:
   _moveSpeed: 4
   _attackValue: 10
   _attackTime: 1
+  _coolDown: 1.5
+  _unitType: 0
 --- !u!114 &2625305549170162725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,8 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6f9e7bdc1937494c818adc3e8697ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &1549560843551682145
-CapsuleCollider:
+--- !u!143 &3328614835942377796
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -206,26 +208,14 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.71512175
-  m_Height: 1.790018
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8589445, z: 2.807901e-18}
---- !u!54 &970314637661502695
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4875441105755766835}
   serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 0
+  m_Height: 1.67
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!1 &4875441105755766839
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,7 +1004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4875441105755767255}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0, y: 0.45108902, z: -0.036125187}
+  m_LocalPosition: {x: -0, y: 0, z: -0.036125187}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

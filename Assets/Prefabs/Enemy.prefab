@@ -567,8 +567,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8324342477025112990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.091, y: -0, z: 0.121}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.44202}
+  m_LocalPosition: {x: 0.091, y: -0, z: 0.2149}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.6297459}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8798115531443796949}
@@ -607,6 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571082e65ade53e4389ae970fb45dec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unitType: 1
 --- !u!1 &8798115531443562037
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,7 +1392,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!136 &8212997646032357689
 CapsuleCollider:
@@ -1437,11 +1438,11 @@ MonoBehaviour:
   _attackValue: 10
   _attackTime: 1.5
   _coolDown: 1.5
+  _unitType: 1
   _viewAngle: 229
   _viewlDistance: 20
   _detectionDistance: 10
   _stoppingDistance: 1.5
-  _attackDistance: 0
   _eye: {fileID: 5404490802130997970}
   _rotationSpeed: 100
 --- !u!195 &8212997646032357688
@@ -1463,7 +1464,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: -0.11
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!1 &8798115531443562431

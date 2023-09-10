@@ -9,7 +9,7 @@ public class PlayerInput
     private PlayerControls _controls;
     public Vector3 DirectionToWalk { get; private set; }
 
-    public event Action AttackE;
+    public event Action PlayerAttackE;
 
     public void Initialized()
     {
@@ -20,7 +20,7 @@ public class PlayerInput
 
     private void Attack(InputAction.CallbackContext obj)
     {
-        AttackE?.Invoke();
+        PlayerAttackE?.Invoke();
     }
 
     public void UpdateMove()
@@ -30,4 +30,10 @@ public class PlayerInput
     }
 
     public Vector3 GetDirection() => DirectionToWalk;
+
+    public void OnDeath()
+    {
+        _controls.OnFootActionMap.Disable();
+        _controls.OnFootActionMap.Attack.performed -= Attack;
+    }
 }

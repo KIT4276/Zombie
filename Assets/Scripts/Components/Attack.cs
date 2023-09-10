@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Attack
 {
-    //private float _attackValue;
     private float _attackTime;
     private float _coolDown;
 
@@ -14,7 +13,6 @@ public class Attack
 
     public void Initialized(float attackTime, float coolDown)
     {
-        //_attackValue = attackvalue;
         _attackTime = attackTime;
         _coolDown = coolDown;
     }

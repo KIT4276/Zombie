@@ -11,7 +11,8 @@ public class Enemy : BaseUnit
     private readonly Player _player;
 
     private EnemiesAI _ai;
-    protected EnemyParams _enemyParams;
+    private EnemyParams _enemyParams;
+    private Move _move;
 
     [SerializeField]
     private HealthBar _healthBar;
@@ -20,7 +21,9 @@ public class Enemy : BaseUnit
     protected override void Start()
     {
         base.Start();
+        _move = new Move();
         _enemyParams = GetComponent<EnemyParams>();
+        _move.Initialized(_params.GetMoveSpeed(), this.gameObject);
 
         _ai = new EnemiesAI();
         _ai.Initialized
@@ -28,7 +31,7 @@ public class Enemy : BaseUnit
             _enemyParams.GetMoveSpeed(), _enemyParams.GetRotationSpeed(), _player.transform, _enemyParams.GetStoppingDistance());
         _healthBar.Init();
 
-        _ai.AttackE += EnemyAttack;
+        _ai.EnemyAttackE += EnemyAttack;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -67,5 +70,10 @@ public class Enemy : BaseUnit
     {
         if(! _attack.IsAttack && _ai.IsDetected && _player.IsAlive)
             UnitAttack();
+    }
+
+    private void OnDestroy()
+    {
+        _ai.EnemyAttackE -= EnemyAttack;
     }
 }
