@@ -34,14 +34,15 @@ public class Enemy : BaseUnit
         _ai.EnemyAttackE += EnemyAttack;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<BatTrigger>() && other.GetComponentInParent<Player>().GetIsAttack())
-        {
-            TakeDamage(_player.GetParams().GetAttackValue());
-            _ai.SetTarget(true);
-        }
-    }
+    //protected override void OnTriggerEnter(Collider other)
+    //{
+    //    base.OnTriggerEnter(other);
+    //    if (other.GetComponent<BatTrigger>() && other.GetComponentInParent<Player>().GetIsAttack())
+    //    {
+    //        TakeDamage(_player.GetParams().GetAttackValue());
+    //        _ai.SetTarget(true);
+    //    }
+    //}
 
     private void FixedUpdate()
     {

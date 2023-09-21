@@ -55,7 +55,7 @@ public class BaseUnit : MonoBehaviour
         }
     }
 
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         //if (other.TryGetComponent<BatTrigger>(out var b))
         //{

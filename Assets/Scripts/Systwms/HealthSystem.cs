@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using TMPro;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class HealthSystem : MonoBehaviour
     private readonly Player _player;
 
     [SerializeField]
-    private Text _healthText;
+    private TextMeshProUGUI _healthText;
 
     private void FixedUpdate()
     {

@@ -12,12 +12,15 @@ public class BootstrapInstaller : MonoInstaller
     {
         InstallPlayer();
         InstallCamera();
+
+        InstallPostSystem();
+        InstallAddressSystem();
     }
 
     private void InstallPlayer()
     {
         Player playerInstance = Container.InstantiatePrefabForComponent<Player>
-            (_playerPrefab, new  Vector3(16,2,0), new Quaternion(0,90,0,0), null);
+            (_playerPrefab, new Vector3(0, 2, -35), new Quaternion(0, 90, 0, 0), null);
         Container.Bind<Player>().FromInstance(playerInstance).AsSingle().NonLazy();
     }
 
@@ -26,5 +29,17 @@ public class BootstrapInstaller : MonoInstaller
         CameraPoint cameraInstance = Container.InstantiatePrefabForComponent<CameraPoint>
             (_cameraPrefab, Vector3.zero, Quaternion.identity, null);
         Container.Bind<CameraPoint>().FromInstance(cameraInstance).AsSingle().NonLazy();
+    }
+
+    private void InstallPostSystem()
+    {
+        PostSystem postSystemInstance = Container.Instantiate<PostSystem>();
+        Container.Bind<PostSystem>().FromInstance(postSystemInstance);
+    }
+
+    private void InstallAddressSystem()
+    {
+        AddressSystem addressSystemInstance = Container.Instantiate<AddressSystem>();
+        Container.Bind<AddressSystem>().FromInstance(addressSystemInstance);
     }
 }

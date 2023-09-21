@@ -2,15 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatTrigger : MonoBehaviour
+public class BatTrigger : BaseTrigger
 {
     [SerializeField]
     private UnitType _unitType;
-
-    private void Start()
-    {
-        GetComponent<Collider>().isTrigger = true;
-    }
 
     public UnitType GetUnitType() => _unitType;
 }

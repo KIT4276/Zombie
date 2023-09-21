@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController))]
 public class Player : BaseUnit
 {
     private PlayerInput _playerInput;
     private PlayerMove _move;
 
+    [SerializeField]
+    private GameObject _backpack;
 
     protected override void Start()
     {
@@ -39,19 +41,26 @@ public class Player : BaseUnit
         }
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.TryGetComponent <BatTrigger>(out var bat) && other.TryGetComponent<Enemy>(out var enemy) && enemy.GetIsAttack())
-    //    {
-    //        TakeDamage(other.GetComponentInParent<Enemy>().GetParams().GetAttackValue());
-    //    }
-    //}
+    protected override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+
+        if (other.TryGetComponent<AddressTrigger>(out var adresTrigger))
+        {
+            adresTrigger.AdresTriggerEnter();
+            _backpack.SetActive(false);
+        }
+        else if(other.TryGetComponent<PostTrigger>(out var postTrigger))
+        {
+            postTrigger.PostTriggerEnter();
+            _backpack.SetActive(true);
+        }
+    }
+
 
     protected override void Death()
     {
         _playerInput.OnDeath();
         base.Death();
     }
-
-    
 }
