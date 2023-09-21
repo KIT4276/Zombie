@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class AddressTrigger : BaseTrigger
 {
@@ -8,6 +9,8 @@ public class AddressTrigger : BaseTrigger
     //private GameObject _adres;
     private AddressComponent _addressComponent;
     //private int _id;
+    [Inject]
+    private PostSystem _postSystem;
 
     private void Awake()
     {
@@ -18,5 +21,8 @@ public class AddressTrigger : BaseTrigger
     {
          Debug.Log("AdresTriggerEnter " + "id " + _addressComponent.GetId());
         this.gameObject.SetActive(false);
+        _postSystem.PostGiven();
+
+
     }
 }

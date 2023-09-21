@@ -16,7 +16,7 @@ public class PostImageBehaviour : BaseImageBehaviour
         //base.Start();
         _image = GetComponent<Image>();
         _postSystem.PostAppearanceE += OnBlink;
-        _postSystem.PostGivenE += OffBlink;
+        _postSystem.PostReceivedE += OffBlink;
     }
 
 
@@ -34,6 +34,6 @@ public class PostImageBehaviour : BaseImageBehaviour
     private void OnDestroy()
     {
         _postSystem.PostAppearanceE -= OnBlink;
-        _postSystem.PostGivenE -= OffBlink;
+        _postSystem.PostReceivedE -= OffBlink;
     }
 }

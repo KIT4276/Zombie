@@ -37,7 +37,6 @@ public class EntryPoint : MonoBehaviour
         {
             yield return new WaitForSeconds(RandomTime());
             _postSystem.SpawnPost();
-            
         }
     }
 

@@ -16,11 +16,11 @@ public class AddressSystem
         _postSystem = postSystem;
     }
 
-    public void PostGiven()
+    public void PostReceived()
     {
         var r = Random.Range(0, _addreses.Count);
 
         _addreses[r].gameObject.SetActive(true);
-        _postSystem.PostGiven();
+        _postSystem.PostReceived();
     }
 }

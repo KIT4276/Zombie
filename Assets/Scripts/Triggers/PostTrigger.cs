@@ -11,6 +11,6 @@ public class PostTrigger : BaseTrigger
     public void PostTriggerEnter()
     {
         //Debug.Log("PostTriggerEnter");
-        _adresSystem.PostGiven();
+        _adresSystem.PostReceived();
     }
 }
