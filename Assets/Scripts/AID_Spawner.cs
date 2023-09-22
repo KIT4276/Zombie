@@ -13,12 +13,7 @@ public class AID_Spawner : MonoBehaviour
     [Inject]
     private AIDFactoriy _aIDFactoriy;
 
-    private void Start()
-    {
-        SpawnStartAIDs();
-    }
-
-    private void SpawnStartAIDs()
+    public void SpawnStartAIDs()
     {
         foreach (var point in _aidSpawnPoints)
         {

@@ -11,6 +11,11 @@ public class EntryPoint : MonoBehaviour
     [SerializeField]
     private List<AddressComponent> _adresComponents;
 
+    [SerializeField]
+    private EnemySpawner _enemySpawner;
+    [SerializeField]
+    private AID_Spawner _aID_Spawner;
+
 
     [Inject]
     private PostSystem _postSystem;
@@ -29,6 +34,9 @@ public class EntryPoint : MonoBehaviour
 
         _adresSystem.Init(_adresComponents, _postSystem);
         StartCoroutine(DelayRoutine());
+
+        _aID_Spawner.SpawnStartAIDs();
+        _enemySpawner.SpawnStartEnemies();
     }
 
     private IEnumerator DelayRoutine()

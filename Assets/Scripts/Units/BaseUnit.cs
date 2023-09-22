@@ -18,7 +18,7 @@ public class BaseUnit : MonoBehaviour
         IsAlive = true;
         _params = GetComponent<UnitParams>();
 
-        _health = new Health();
+        _health = new Health(); // не нужно ли после деспавна вручную это удалять или не создавать каждый раз новые??
         
         _attack = new Attack();
         _animation = new Animation();

@@ -20,14 +20,23 @@ public class Enemy : BaseUnit
 
     protected override void Start()
     {
+       
+
+        //Restart();
+    }
+
+    public void Restart()
+    {
         base.Start();
         _move = new Move();
+        _ai = new EnemiesAI();
+
         _enemyParams = GetComponent<EnemyParams>();
         _move.Initialized(_params.GetMoveSpeed(), this.gameObject);
 
-        _ai = new EnemiesAI();
+        
         _ai.Initialized
-            (this, _enemyParams.GetVewAngle(), _enemyParams.GetViewlDistance(), _enemyParams.GetDetectionDistance(),_enemyParams.GetEye(),
+            (this, _enemyParams.GetVewAngle(), _enemyParams.GetViewlDistance(), _enemyParams.GetDetectionDistance(), _enemyParams.GetEye(),
             _enemyParams.GetMoveSpeed(), _enemyParams.GetRotationSpeed(), _player.transform, _enemyParams.GetStoppingDistance());
         _healthBar.Init();
 

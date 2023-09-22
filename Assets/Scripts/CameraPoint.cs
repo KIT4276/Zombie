@@ -18,7 +18,7 @@ public class CameraPoint : MonoBehaviour
         transform.parent = null;
     }
 
-    private void FixedUpdate()
+    private void Update()
         => transform.position = Vector3.Lerp(transform.position, _target.transform.position, _speed * Time.deltaTime);
 
     public Transform GetCameraTransform()

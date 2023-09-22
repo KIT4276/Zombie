@@ -10,10 +10,13 @@ public class BootstrapInstaller : MonoInstaller
 
     [SerializeField]
     private AIDTrigger _aidPrefab;
+    [SerializeField]
+    private Enemy _enemyPrefab;
 
     public override void InstallBindings()
     {
         InstallAidFactory();
+        InstallEnemyFactoriy();
 
         InstallPlayer();
         InstallCamera();
@@ -56,5 +59,9 @@ public class BootstrapInstaller : MonoInstaller
         Container.BindMemoryPool<AIDTrigger, AIDTrigger.Pool>().FromComponentInNewPrefab(_aidPrefab);
     }
 
-
+    private void InstallEnemyFactoriy()
+    {
+        Container.Bind<EnemyFactoriy>().AsSingle();
+        Container.BindMemoryPool<Enemy, Enemy.Pool>().FromComponentInNewPrefab(_enemyPrefab);
+    }
 }
