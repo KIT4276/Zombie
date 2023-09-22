@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Zenject;
 
 public class PostTrigger : BaseTrigger
@@ -10,7 +7,6 @@ public class PostTrigger : BaseTrigger
     
     public void PostTriggerEnter()
     {
-        //Debug.Log("PostTriggerEnter");
         _adresSystem.PostReceived();
     }
 }

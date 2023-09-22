@@ -1,21 +1,19 @@
 using System;
-using UnityEngine;
 
 public class PostSystem 
 {
     private bool _isSpawned;
-    
+
     public event Action PostAppearanceE;
     public event Action PostReceivedE;
     public event Action PostGivenE;
 
+    public float DeliveredCount { get; private set; }
+
     public void SpawnPost()
     {
-        //Debug.Log("SpatnPost");
-        
         if (!_isSpawned)
         {
-            //Debug.Log("!_isSpawned SpatnPost");
             PostAppearanceE?.Invoke();
             _isSpawned = true;
         }
@@ -23,6 +21,7 @@ public class PostSystem
 
     public void PostGiven()
     {
+        DeliveredCount++;
         PostGivenE?.Invoke();
         _isSpawned = false;
     }
@@ -30,6 +29,5 @@ public class PostSystem
     public void PostReceived()
     {
         PostReceivedE?.Invoke();
-        //_isSpawned = false;
     }
 }

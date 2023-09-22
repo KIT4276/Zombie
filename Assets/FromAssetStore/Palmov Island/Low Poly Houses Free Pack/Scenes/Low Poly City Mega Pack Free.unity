@@ -6628,6 +6628,7 @@ GameObject:
   - component: {fileID: 533356900}
   - component: {fileID: 533356899}
   - component: {fileID: 533356901}
+  - component: {fileID: 533356902}
   m_Layer: 0
   m_Name: AdresTrigger (4)
   m_TagString: Untagged
@@ -6741,6 +6742,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &533356902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533356894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c719488d979c5047813dfc595edafd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startColor: {r: 0.2392157, g: 0.5647059, b: 0.47058827, a: 0.4117647}
+  _blinkColor: {r: 0.6603774, g: 0.34576362, b: 0.44294897, a: 0.4117647}
+  _blinkTime: 0.6
+  _material: {fileID: 0}
 --- !u!1 &542791085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6427494710875723552, guid: 36da48118d7b2ec48b60053be72cc5fd, type: 3}
@@ -7954,6 +7971,7 @@ GameObject:
   - component: {fileID: 691907043}
   - component: {fileID: 691907042}
   - component: {fileID: 691907044}
+  - component: {fileID: 691907045}
   m_Layer: 0
   m_Name: AdresTrigger (2)
   m_TagString: Untagged
@@ -8067,6 +8085,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &691907045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691907037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c719488d979c5047813dfc595edafd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startColor: {r: 0.2392157, g: 0.5647059, b: 0.47058827, a: 0.4117647}
+  _blinkColor: {r: 0.6603774, g: 0.34576362, b: 0.44294897, a: 0.4117647}
+  _blinkTime: 0.6
+  _material: {fileID: 0}
 --- !u!1 &692434103 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8261508811039212895, guid: cabe52ea39b70dc4a9a866680afc2fc8, type: 3}
@@ -14850,6 +14884,7 @@ GameObject:
   - component: {fileID: 1281242026}
   - component: {fileID: 1281242025}
   - component: {fileID: 1281242027}
+  - component: {fileID: 1281242028}
   m_Layer: 0
   m_Name: AdresTrigger (3)
   m_TagString: Untagged
@@ -14963,6 +14998,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &1281242028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281242020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c719488d979c5047813dfc595edafd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startColor: {r: 0.2392157, g: 0.5647059, b: 0.47058827, a: 0.4117647}
+  _blinkColor: {r: 0.6603774, g: 0.34576362, b: 0.44294897, a: 0.4117647}
+  _blinkTime: 0.6
+  _material: {fileID: 0}
 --- !u!1001 &1284651267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16945,6 +16996,7 @@ GameObject:
   - component: {fileID: 1433993481}
   - component: {fileID: 1433993480}
   - component: {fileID: 1433993482}
+  - component: {fileID: 1433993483}
   m_Layer: 0
   m_Name: AdresTrigger
   m_TagString: Untagged
@@ -17058,6 +17110,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &1433993483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433993475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c719488d979c5047813dfc595edafd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startColor: {r: 0.2392157, g: 0.5647059, b: 0.47058827, a: 0.4117647}
+  _blinkColor: {r: 0.6603774, g: 0.34576362, b: 0.44294897, a: 0.4117647}
+  _blinkTime: 0.6
+  _material: {fileID: 0}
 --- !u!1001 &1435264116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18782,6 +18850,7 @@ GameObject:
   - component: {fileID: 1568310804}
   - component: {fileID: 1568310803}
   - component: {fileID: 1568310805}
+  - component: {fileID: 1568310806}
   m_Layer: 0
   m_Name: AdresTrigger (1)
   m_TagString: Untagged
@@ -18895,6 +18964,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &1568310806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568310798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c719488d979c5047813dfc595edafd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startColor: {r: 0.2392157, g: 0.5647059, b: 0.47058827, a: 0.4117647}
+  _blinkColor: {r: 0.6603774, g: 0.34576362, b: 0.44294897, a: 0.4117647}
+  _blinkTime: 0.6
+  _material: {fileID: 0}
 --- !u!1001 &1569029430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26615,6 +26700,7 @@ GameObject:
   - component: {fileID: 2041799458}
   - component: {fileID: 2041799457}
   - component: {fileID: 2041799459}
+  - component: {fileID: 2041799460}
   m_Layer: 0
   m_Name: AdresTrigger (5)
   m_TagString: Untagged
@@ -26728,6 +26814,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &2041799460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041799452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c719488d979c5047813dfc595edafd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startColor: {r: 0.2392157, g: 0.5647059, b: 0.47058827, a: 0.4117647}
+  _blinkColor: {r: 0.6603774, g: 0.34576362, b: 0.44294897, a: 0.4117647}
+  _blinkTime: 0.6
+  _material: {fileID: 0}
 --- !u!1001 &2044567140
 PrefabInstance:
   m_ObjectHideFlags: 0
