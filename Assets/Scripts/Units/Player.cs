@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 [RequireComponent(typeof(CharacterController))]
 public class Player : BaseUnit
@@ -10,6 +11,9 @@ public class Player : BaseUnit
 
     [SerializeField]
     private GameObject _backpack;
+
+    [Inject]
+    private AIDFactoriy _aIDFactoriy;
 
     protected override void Start()
     {
@@ -58,8 +62,7 @@ public class Player : BaseUnit
         else if (other.TryGetComponent<AIDTrigger>(out var aid))
         {
             _health.CangeHealth( aid.AIDTriggerEnter());
-            //todo Despawn
-            other.gameObject.SetActive(false);
+            _aIDFactoriy.DeSpawnAID(aid);
         }
     }
 

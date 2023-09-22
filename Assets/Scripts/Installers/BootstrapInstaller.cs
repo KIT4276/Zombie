@@ -8,13 +8,20 @@ public class BootstrapInstaller : MonoInstaller
     [SerializeField]
     private GameObject _cameraPrefab;
 
+    [SerializeField]
+    private AIDTrigger _aidPrefab;
+
     public override void InstallBindings()
     {
+        InstallAidFactory();
+
         InstallPlayer();
         InstallCamera();
 
         InstallPostSystem();
         InstallAddressSystem();
+
+        
     }
 
     private void InstallPlayer()
@@ -42,4 +49,12 @@ public class BootstrapInstaller : MonoInstaller
         AddressSystem addressSystemInstance = Container.Instantiate<AddressSystem>();
         Container.Bind<AddressSystem>().FromInstance(addressSystemInstance);
     }
+
+    private void InstallAidFactory()
+    {
+        Container.Bind<AIDFactoriy>().AsSingle();
+        Container.BindMemoryPool<AIDTrigger, AIDTrigger.Pool>().FromComponentInNewPrefab(_aidPrefab);
+    }
+
+
 }

@@ -45,4 +45,6 @@ public class Animation
     {
         _animator.SetTrigger(Attack);
     }
+
+    
 }

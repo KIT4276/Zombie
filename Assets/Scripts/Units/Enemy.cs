@@ -34,16 +34,7 @@ public class Enemy : BaseUnit
         _ai.EnemyAttackE += EnemyAttack;
     }
 
-    //protected override void OnTriggerEnter(Collider other)
-    //{
-    //    base.OnTriggerEnter(other);
-    //    if (other.GetComponent<BatTrigger>() && other.GetComponentInParent<Player>().GetIsAttack())
-    //    {
-    //        TakeDamage(_player.GetParams().GetAttackValue());
-    //        _ai.SetTarget(true);
-    //    }
-    //}
-
+    
     private void FixedUpdate()
     {
         if (IsAlive)
@@ -77,4 +68,6 @@ public class Enemy : BaseUnit
     {
         _ai.EnemyAttackE -= EnemyAttack;
     }
+
+    public class Pool : MonoMemoryPool<Enemy> { }
 }

@@ -2,7 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 
-public class AdrTriggBehaviour : MonoBehaviour
+public class HighlightBehaviour : MonoBehaviour
 {
     [SerializeField]
     protected Color _startColor;
