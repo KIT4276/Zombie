@@ -19,7 +19,7 @@ public class CameraPoint : MonoBehaviour
     }
 
     private void FixedUpdate()
-        => transform.position = Vector3.Lerp(transform.position, _target.transform.position, _speed * Time.fixedDeltaTime);
+        => transform.position = Vector3.Lerp(transform.position, _target.transform.position, _speed * Time.deltaTime);
 
     public Transform GetCameraTransform()
     {

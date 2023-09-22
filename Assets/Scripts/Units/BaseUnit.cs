@@ -67,12 +67,14 @@ public class BaseUnit : MonoBehaviour
         //    Debug.Log("!= null");
         //    Debug.Log(GetComponentInParent<BaseUnit>().GetIsAttack());
         //}
-        
-        
+        //Debug.Log("бита " + other.TryGetComponent<BatTrigger>(out var b));
+        //Debug.Log("чья " + b.GetUnitType() );
+        //Debug.Log("BaseUnit " + other.GetComponentInParent<BaseUnit>());
+        //Debug.Log("Атакует " + other.GetComponentInParent<BaseUnit>().GetIsAttack());
 
-        if (other.TryGetComponent<BatTrigger>(out var bat) && bat.GetUnitType() != _params.GetUnitType() && other.GetComponentInParent<BaseUnit>() != null && other.GetComponentInParent<BaseUnit>())
+        if (other.TryGetComponent<BatTrigger>(out var bat) && bat.GetUnitType() != _params.GetUnitType() && other.GetComponentInParent<BaseUnit>() != null && other.GetComponentInParent<BaseUnit>().GetIsAttack())
         {
-            Debug.Log("Удар");
+            Debug.Log(this.name +  " Принял Удар " );
             TakeDamage(other.GetComponentInParent<BaseUnit>().GetParams().GetAttackValue());
         }
     }

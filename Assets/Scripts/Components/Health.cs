@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class Health
 {
-   public float CurrentHealth { get; private set; }
+    private float _startHealth;
+
+
+    public float CurrentHealth { get; private set; }
 
     public event Action DeathE;
 
     public void Initialized(float startHealth)
     {
+        _startHealth = startHealth;
         CurrentHealth = startHealth;
     }
 
@@ -21,6 +25,10 @@ public class Health
         if(CurrentHealth <= 0)
         {
             Death();
+        }
+        else if (CurrentHealth >= _startHealth)
+        {
+            CurrentHealth = _startHealth;
         }
     }
 

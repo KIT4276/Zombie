@@ -55,6 +55,12 @@ public class Player : BaseUnit
             postTrigger.PostTriggerEnter();
             _backpack.SetActive(true);
         }
+        else if (other.TryGetComponent<AIDTrigger>(out var aid))
+        {
+            _health.CangeHealth( aid.AIDTriggerEnter());
+            //todo Despawn
+            other.gameObject.SetActive(false);
+        }
     }
 
 
