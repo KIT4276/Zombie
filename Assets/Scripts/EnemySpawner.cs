@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField]
     private List<Transform> _enemiesSpawnPoints;
+    [SerializeField]
+    private float _spawnDelay = 20;
 
     [Inject]
     private EnemyFactoriy _enemyFactoriy;
@@ -24,10 +26,33 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnStartEnemies()
     {
-        foreach(var point in _enemiesSpawnPoints)
+        StartCoroutine(SpawnDelayRoutine());
+    }
+
+    private IEnumerator SpawnDelayRoutine()
+    {
+        while (true)
         {
-            var enemy = _enemyFactoriy.SpawnEnemy(point);
-            _enemies.Add(enemy);
+            yield return new WaitForSeconds(_spawnDelay);
+            SpawnEnemy(RandomPoint());
         }
+    }
+
+    private void SpawnEnemy(Transform point)
+    {
+        var enemy = _enemyFactoriy.SpawnEnemy(point);
+        _enemies.Add(enemy);
+        Debug.Log("SpawnEnemy " + point.name);
+    }
+
+    private Transform RandomPoint()
+    {
+        var r = Random.Range(0, _enemiesSpawnPoints.Count);
+        return _enemiesSpawnPoints[r];
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 }
