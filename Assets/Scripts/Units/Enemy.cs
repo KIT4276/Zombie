@@ -14,14 +14,13 @@ public class Enemy : BaseUnit
     private EnemyParams _enemyParams;
     private Move _move;
 
+    private EnemyType _enemyBehaviourType;
+
     [SerializeField]
     private HealthBar _healthBar;
-    
 
     protected override void Start()
     {
-       
-
         //Restart();
     }
 
